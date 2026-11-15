@@ -431,7 +431,7 @@ export function InvestigationView() {
               </div>
             ) : (
               <p style={{ fontSize: '11px', color: '#78716c', marginTop: '6px' }}>
-                👈 Click any record in the table on the left to inspect raw metadata specifications.
+                 Click any record in the table on the left to inspect raw metadata specifications.
               </p>
             )}
           </div>
