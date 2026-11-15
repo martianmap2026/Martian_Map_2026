@@ -58,6 +58,13 @@ export function HomeLanding({ onSelectRoute }: HomeLandingProps) {
         </div>
 
       </div>
+
+      {/* REFLEXIÓN CIENTÍFICA INSPIRADORA */}
+      <div className="landing-reflection-footer">
+        <p>
+          "The nature of life on Earth and the search for life elsewhere are two aspects of the same question: the search for what we are."
+        </p>
+      </div>
     </div>
   )
 }
