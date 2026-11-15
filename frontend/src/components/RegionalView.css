@@ -1,0 +1,289 @@
+/* Contenedor Principal */
+.regional-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  box-sizing: border-box;
+  background: #f7f6f3;
+  min-height: 100vh;
+  color: #1c1917;
+}
+
+.view-header {
+  margin-bottom: 4px;
+}
+
+.view-header h3 {
+  margin: 0 0 4px 0;
+  color: #1c1917;
+  font-size: 20px;
+}
+
+.view-header p {
+  margin: 0;
+  color: #78716c;
+  font-size: 13px;
+}
+
+/* Panel Superior: Mapa a todo el ancho */
+.map-full-panel {
+  background: #ffffff;
+  border: 1px solid #e7e5e4;
+  border-radius: 10px;
+  padding: 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.map-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: #44403c;
+}
+
+.interactive-map-wide {
+  width: 100%;
+  height: 400px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.map-hint {
+  margin: 0;
+  font-size: 12px;
+  color: #78716c;
+}
+
+.reset-btn {
+  background: #ea580c;
+  color: white;
+  border: none;
+  padding: 5px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.reset-btn:hover {
+  background: #c2410c;
+}
+
+/* Contenedor Unificado de Datos de Ruta */
+.unified-route-container {
+  background: #ffffff;
+  border: 1px solid #e7e5e4;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.unified-header-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f0eeeb;
+  padding-bottom: 10px;
+  font-size: 13px;
+  color: #44403c;
+}
+
+.unified-header-info strong {
+  color: #ea580c;
+}
+
+/* Cuadrícula de 3 columnas dentro de la sección de datos */
+.bottom-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.2fr;
+  gap: 16px;
+}
+
+@media (max-width: 1024px) {
+  .bottom-grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dashboard-card {
+  background: #fafaf9;
+  border: 1px solid #e7e5e4;
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dashboard-card h5 {
+  margin: 0;
+  font-size: 13px;
+  color: #1c1917;
+  border-bottom: 1px solid #e7e5e4;
+  padding-bottom: 6px;
+}
+
+/* Tabla de registros */
+.table-scroll {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.mola-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+  color: #44403c;
+}
+
+.mola-table th, .mola-table td {
+  padding: 6px 8px;
+  text-align: left;
+  border-bottom: 1px solid #e7e5e4;
+}
+
+.mola-table tr:hover {
+  background: #f0eeeb;
+  cursor: pointer;
+}
+
+.selected-row {
+  background: #fed7aa !important;
+}
+
+.badge-txt {
+  background: #0284c7;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+}
+
+.product-id-cell {
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.loading-text {
+  font-size: 12px;
+  color: #78716c;
+  text-align: center;
+  margin: 20px 0;
+}
+
+/* Estilos para el Gráfico Circular / Donut Chart de Instrumentos */
+.pie-chart-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: space-around;
+}
+
+.donut-svg {
+  width: 90px;
+  height: 90px;
+  transform: rotate(-90deg);
+}
+
+.donut-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 11px;
+  color: #44403c;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* Contenedor Unificado para la Información Científica (Inferior) */
+.unified-info-container {
+  background: #ffffff;
+  border: 1px solid #e7e5e4;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+.unified-info-container h4 {
+  margin: 0;
+  font-size: 15px;
+  color: #1c1917;
+  border-bottom: 1px solid #f0eeeb;
+  padding-bottom: 10px;
+}
+
+.info-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1024px) {
+  .info-grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.info-column-item {
+  font-size: 12px;
+  color: #44403c;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.info-column-item h5 {
+  margin: 0 0 8px 0;
+  font-size: 13px;
+  color: #0284c7;
+  border-bottom: 1px solid #f0eeeb;
+  padding-bottom: 6px;
+  text-align: left;
+}
+
+/* Estilos para la exportación a PDF (Modo Impresión) */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .regional-container, .regional-container * {
+    visibility: visible;
+  }
+  .regional-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: white !important;
+  }
+  .reset-btn, .map-toolbar span:first-child {
+    display: none !important; /* Oculta botones innecesarios en el PDF */
+  }
+  .interactive-map-wide {
+    height: 350px !important; /* Asegura que el mapa salga visible */
+  }
+}
