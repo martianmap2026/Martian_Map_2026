@@ -5,6 +5,18 @@ import 'leaflet/dist/leaflet.css'
 import { supabase } from '../services/supabaseClient'
 import './InvestigationView.css'
 
+// Parche para asegurar que los marcadores de Leaflet carguen correctamente en producción
+import icon from 'leaflet/dist/images/marker-icon.png';
+import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+
+let DefaultIcon = L.icon({
+  iconUrl: icon,
+  shadowUrl: iconShadow,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41]
+});
+L.Marker.prototype.options.icon = DefaultIcon;
+
 interface MarsDatasetRecord {
   id: number;
   instrument_host?: string;
@@ -317,7 +329,7 @@ export function InvestigationView() {
                 </LayersControl.Overlay>
               )}
               {footprintsData && (
-                <LayersControl.Overlay checked name="Mola Footprints">
+                <LayersControl.Overlay name="Mola Footprints">
                   <GeoJSON data={footprintsData} style={{ color: '#f43f5e', weight: 1.5, fillColor: '#f43f5e', fillOpacity: footprintsOpacity }} />
                 </LayersControl.Overlay>
               )}
@@ -357,7 +369,6 @@ export function InvestigationView() {
           </div>
         </div>
 
-        {/* Fila 1: Tabla, Metadatos y Brechas */}
         <div className="bottom-grid-3" style={{ marginBottom: '16px' }}>
           
           <div className="dashboard-card">
@@ -434,7 +445,6 @@ export function InvestigationView() {
 
         </div>
 
-        {/* Fila 2: Gráficas de Minerales e Instrumentos */}
         <div className="bottom-grid-3">
           
           <div className="dashboard-card">
