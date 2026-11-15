@@ -17,6 +17,10 @@ interface MarsDatasetRecord {
   center_longitude_if_available?: number;
 }
 
+interface RegionalViewProps {
+  molaCount?: number | null;
+}
+
 const MAWRTH_CENTER: [number, number] = [22.16, 342.05]; 
 const DEFAULT_ZOOM = 11;
 
@@ -56,7 +60,7 @@ function calculateMarsDistance(p1: { lat: number; lng: number }, p2: { lat: numb
   return R * c;
 }
 
-export function RegionalView() {
+export function RegionalView({ molaCount }: RegionalViewProps) {
   const [allRecords, setAllRecords] = useState<MarsDatasetRecord[]>([]) 
   const [filteredRecords, setFilteredRecords] = useState<MarsDatasetRecord[]>([]) 
   const [regionsData, setRegionsData] = useState<any>(null)
@@ -241,7 +245,7 @@ export function RegionalView() {
     <div className="regional-container">
       <div className="view-header">
         <h3>Route 1: Explore by Region — Mawrth Vallis</h3>
-        <p>Select Point A and Point B on the map to analyze trajectory datasets.</p>
+        <p>Select Point A and Point B on the map to analyze trajectory datasets. {molaCount !== null && `(MOLA Total: ${molaCount})`}</p>
       </div>
 
       <div className="map-full-panel">
@@ -327,7 +331,6 @@ export function RegionalView() {
         </p>
       </div>
 
-      {/* DASHBOARD UNIFICADO: FILA 1 (REGISTROS, METADATOS NASA ODE, BRECHAS) Y FILA 2 (GRÁFICAS) */}
       <div className="unified-route-container">
         <div className="unified-header-info">
           <span><strong>Route Analysis Dashboard</strong></span>
@@ -339,7 +342,6 @@ export function RegionalView() {
           </div>
         </div>
 
-        {/* Fila 1: Tabla, Metadatos y Brechas */}
         <div className="bottom-grid-3" style={{ marginBottom: '16px' }}>
           
           <div className="dashboard-card">
@@ -409,7 +411,6 @@ export function RegionalView() {
 
         </div>
 
-        {/* Fila 2: Tus gráficas de Minerales e Instrumentos originales */}
         <div className="bottom-grid-3">
           
           <div className="dashboard-card">
