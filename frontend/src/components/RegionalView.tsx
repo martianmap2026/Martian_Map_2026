@@ -6,6 +6,18 @@ import { supabase } from '../services/supabaseClient'
 import { TransitabilityPanel } from './TransitabilityPanel'
 import './RegionalView.css'
 
+// Parche para asegurar que los marcadores de Leaflet carguen correctamente en producción
+import icon from 'leaflet/dist/images/marker-icon.png';
+import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+
+let DefaultIcon = L.icon({
+  iconUrl: icon,
+  shadowUrl: iconShadow,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41]
+});
+L.Marker.prototype.options.icon = DefaultIcon;
+
 interface MarsDatasetRecord {
   id: number;
   instrument_host?: string;
@@ -245,7 +257,16 @@ export function RegionalView({ molaCount }: RegionalViewProps) {
     <div className="regional-container">
       <div className="view-header">
         <h3>Route 1: Explore by Region — Mawrth Vallis</h3>
-        <p>Select Point A and Point B on the map to analyze trajectory datasets. {molaCount !== null && `(MOLA Total: ${molaCount})`}</p>
+        <p>Select Point A and Point B on the map to analyze trajectory datasets. {molaCount !== null && `(MOLA Records: ${molaCount})`}</p>
+      </div>
+
+      {/* Tarjeta de Alcance y Funcionalidad */}
+      <div style={{ background: '#ffffff', borderLeft: '4px solid #ea580c', padding: '12px 16px', borderRadius: '8px', marginBottom: '16px', boxShadow: '0 1px 3px rgba(0,0,0,0.05)' }}>
+        <h4 style={{ margin: '0 0 4px 0', fontSize: '13px', color: '#1c1917' }}>🎯 Route Functionality & Scope</h4>
+        <p style={{ margin: 0, fontSize: '11px', color: '#57534e', lineHeight: '1.4' }}>
+          <strong>Functionality:</strong> Interactive regional exploration tool that allows users to define custom traverse vectors (Point A to Point B) across Mawrth Vallis. It dynamically filters synchronized orbital datasets, calculates geodesic distances, and evaluates stratigraphic mineral compositions.<br/>
+          <strong>Scope:</strong> Bridges high-resolution orbital imagery (USGS/MOLA) with localized landing safety parameters, providing automated CSV dataset exports and real-time analytical dashboards for planetary mission planning.
+        </p>
       </div>
 
       <div className="map-full-panel">
@@ -300,7 +321,7 @@ export function RegionalView({ molaCount }: RegionalViewProps) {
               )}
 
               {footprintsData && (
-                <LayersControl.Overlay checked name="Mola Footprints (Supabase)">
+                <LayersControl.Overlay name="Mola Footprints (Supabase)">
                   <GeoJSON data={footprintsData} style={{ color: '#f43f5e', weight: 1.5, fillColor: '#f43f5e', fillOpacity: footprintsOpacity }} />
                 </LayersControl.Overlay>
               )}
