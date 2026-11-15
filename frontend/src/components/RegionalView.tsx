@@ -262,7 +262,7 @@ export function RegionalView({ molaCount }: RegionalViewProps) {
 
       {/* Tarjeta de Alcance y Funcionalidad */}
       <div style={{ background: '#ffffff', borderLeft: '4px solid #ea580c', padding: '12px 16px', borderRadius: '8px', marginBottom: '16px', boxShadow: '0 1px 3px rgba(0,0,0,0.05)' }}>
-        <h4 style={{ margin: '0 0 4px 0', fontSize: '13px', color: '#1c1917' }}>🎯 Route Functionality & Scope</h4>
+        <h4 style={{ margin: '0 0 4px 0', fontSize: '13px', color: '#1c1917' }}>S Route Functionality & Scope</h4>
         <p style={{ margin: 0, fontSize: '11px', color: '#57534e', lineHeight: '1.4' }}>
           <strong>Functionality:</strong> Interactive regional exploration tool that allows users to define custom traverse vectors (Point A to Point B) across Mawrth Vallis. It dynamically filters synchronized orbital datasets, calculates geodesic distances, and evaluates stratigraphic mineral compositions.<br/>
           <strong>Scope:</strong> Bridges high-resolution orbital imagery (USGS/MOLA) with localized landing safety parameters, providing automated CSV dataset exports and real-time analytical dashboards for planetary mission planning.
@@ -418,7 +418,7 @@ export function RegionalView({ molaCount }: RegionalViewProps) {
               </div>
             ) : (
               <p style={{ fontSize: '11px', color: '#78716c', marginTop: '6px' }}>
-                👈 Click any record in the table on the left to inspect raw metadata specifications.
+                 Click any record in the table on the left to inspect raw metadata specifications.
               </p>
             )}
           </div>
